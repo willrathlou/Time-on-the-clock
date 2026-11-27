@@ -1,0 +1,224 @@
+:root {
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#f3f5f2;
+  --surface:#ffffff;
+  --text:#16211c;
+  --muted:#5d6b64;
+  --line:#d5dcd7;
+  --in:#1f7a4d;
+  --in-text:#ffffff;
+  --out:#b3402a;
+  --out-text:#ffffff;
+  --focus:#1b4fd8;
+}
+
+@media (prefers-color-scheme:dark) {
+  :root:not([data-theme="light"]) {
+    --bg:#101612;
+    --surface:#18211b;
+    --text:#e8efe9;
+    --muted:#9aa9a0;
+    --line:#2c3a31;
+    --in:#3aa873;
+    --in-text:#06130c;
+    --out:#e0694f;
+    --out-text:#1a0803;
+    --focus:#7fa2ff;
+  }
+
+}
+
+:root[data-theme="dark"] {
+  --bg:#101612;
+  --surface:#18211b;
+  --text:#e8efe9;
+  --muted:#9aa9a0;
+  --line:#2c3a31;
+  --in:#3aa873;
+  --in-text:#06130c;
+  --out:#e0694f;
+  --out-text:#1a0803;
+  --focus:#7fa2ff;
+}
+
+*,*::before,*::after {
+box-sizing:inherit}
+
+html,body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif}
+
+main {
+  max-width:560px;
+  margin:0 auto;
+padding:32px 20px 48px}
+
+.clock {
+  font-size:clamp(3.4rem,17vw,6rem);
+  font-weight:700;
+  letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;
+  line-height:1;
+margin:8px 0 6px}
+
+.date {
+  color:var(--muted);
+  font-size:1.05rem;
+margin:0 0 28px}
+
+.actions {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+margin-bottom:24px}
+
+button {
+  font:inherit;
+  font-size:1.15rem;
+  font-weight:600;
+  padding:18px 12px;
+  border:0;
+  border-radius:10px;
+cursor:pointer}
+
+button:focus-visible,input:focus-visible {
+  outline:3px solid var(--focus);
+outline-offset:2px}
+
+#btnIn {
+  background:var(--in);
+color:var(--in-text)}
+
+#btnOut {
+  background:var(--out);
+color:var(--out-text)}
+
+#reset {
+  grid-column:1/-1;
+  background:transparent;
+  color:var(--text);
+  border:1px solid var(--line);
+  padding:12px;
+font-size:1rem}
+
+button:disabled {
+  opacity:.4;
+cursor:not-allowed}
+
+.times {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+gap:12px}
+
+label {
+  display:block;
+  font-size:.95rem;
+  color:var(--muted);
+margin-bottom:6px}
+
+input[type=time] {
+  width:100%;
+  font:inherit;
+  font-size:1.4rem;
+  font-variant-numeric:tabular-nums;
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--surface);
+color:var(--text)}
+
+.status {
+  margin-top:24px;
+  padding:16px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:8px;
+min-height:3.2em}
+
+.status p {
+margin:0}
+
+.status p+p {
+  margin-top:6px;
+color:var(--muted)}
+
+.pay {
+  margin-top:24px;
+  padding:16px;
+  background:var(--surface);
+  border:1px solid var(--line);
+border-radius:8px}
+
+.pay h2 {
+  font-size:1.05rem;
+margin:0 0 12px}
+
+.wagerow {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+margin-bottom:12px}
+
+.pay input,.pay select {
+  width:100%;
+  font:inherit;
+  font-size:1.2rem;
+  padding:10px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--bg);
+color:var(--text)}
+
+.pay select:focus-visible {
+  outline:3px solid var(--focus);
+outline-offset:2px}
+
+.earned {
+  font-size:clamp(2rem,10vw,3rem);
+  font-weight:700;
+  font-variant-numeric:tabular-nums;
+  line-height:1.1;
+margin:4px 0}
+
+.stats {
+  margin:12px 0 0;
+  padding:0;
+  list-style:none;
+color:var(--muted)}
+
+.stats li {
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:6px 0;
+border-top:1px solid var(--line)}
+
+.stats b {
+  color:var(--text);
+font-variant-numeric:tabular-nums}
+
+.wagebtns {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+margin-bottom:8px}
+
+.wagebtns button {
+  font-size:.95rem;
+  padding:10px 6px;
+  background:var(--bg);
+  color:var(--text);
+border:1px solid var(--line)}
+
+#wageMsg {
+  color:var(--muted);
+  min-height:1.3em;
+  margin-bottom:12px;
+font-size:.95rem}
+
+.hidden {
+display:none}
